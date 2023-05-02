@@ -28,7 +28,7 @@ class DataController extends GetxController {
   var isEventsLoading = false.obs;
 
 
-  var isMessageSending = false.obs;
+    var isMessageSending = false.obs;
   sendMessageToFirebase({
     Map<String,dynamic>? data,
     String? lastMessage,
@@ -46,6 +46,16 @@ class DataController extends GetxController {
 
     isMessageSending(false);
 
+  }
+
+
+  createNotification(String recUid){
+    FirebaseFirestore.instance.collection('notifications').doc(recUid).collection('myNotifications').add({
+      'message': "Send you a message.",
+      'image': myDocument!.get('image'),
+      'name': myDocument!.get('first')+ " "+ myDocument!.get('last'),
+      'time': DateTime.now()
+    });
   }
 
 Future<String> uploadImageToFirebase(File file) async{

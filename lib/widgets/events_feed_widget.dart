@@ -28,9 +28,9 @@ List<AustinYogaWork> austin = [
 
 
 
-    return Obx(()=> dataController.isEventsLoading.value? Center(child: CircularProgressIndicator(),) : ListView.builder(
+    return Obx(()=> dataController.isEventsLoading.value? const Center(child: CircularProgressIndicator(),) : ListView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (ctx,i){
       return EventItem(dataController.allEvents[i]);
     },itemCount: dataController.allEvents.length,));
@@ -81,16 +81,16 @@ List eventSavedByUsers = [];
                     }
 
     return Container(
-      padding: EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 10),
+      padding: const EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 10),
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(17),
         boxShadow: [
           BoxShadow(
-            color: Color(393939).withOpacity(0.15),
+            color: const Color(393939).withOpacity(0.15),
             spreadRadius: 0.1,
             blurRadius: 2,
-            offset: Offset(0, 0), // changes position of shadow
+            offset: const Offset(0, 0), // changes position of shadow
           ),
         ],
       ),
@@ -115,7 +115,7 @@ List eventSavedByUsers = [];
               //color: Colors.red,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
@@ -129,23 +129,23 @@ List eventSavedByUsers = [];
                   // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(4),
-                      border: Border.all(color: Color(0xffADD8E6))),
+                      border: Border.all(color: const Color(0xffADD8E6))),
                   child: Text(
                     '${dateInformation[0]}-${dateInformation[1]}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 18,
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                 ),
-                Spacer(),
+                const Spacer(),
                 InkWell(
                   onTap: (){
                 
@@ -199,7 +199,7 @@ List eventSavedByUsers = [];
 
 
                 return Container(
-                  margin: EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(left: 10),
                   child: CircleAvatar(
                 minRadius: 13,
                 backgroundImage: NetworkImage(image),
@@ -217,7 +217,7 @@ List eventSavedByUsers = [];
           ),
           Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 68,
               ),
              InkWell(
@@ -242,14 +242,14 @@ List eventSavedByUsers = [];
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Color(0xffD24698).withOpacity(0.02),
+                      color: const Color(0xffD24698).withOpacity(0.02),
                     )
                   ],
                 ),
                 child: Icon(Icons.favorite,size: 14,color: userLikes.contains(FirebaseAuth.instance.currentUser!.uid)? Colors.red:Colors.black,),
               ),
              ),
-              SizedBox(
+              const SizedBox(
                 width: 3,
               ),
               Text(
@@ -260,11 +260,11 @@ List eventSavedByUsers = [];
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Container(
-                padding: EdgeInsets.all(0.5),
+                padding: const EdgeInsets.all(0.5),
                 width: 17,
                 height: 17,
                 child: Image.asset(
@@ -272,7 +272,7 @@ List eventSavedByUsers = [];
                   color: AppColors.black,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(
@@ -283,11 +283,11 @@ List eventSavedByUsers = [];
                   color: AppColors.black,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 15,
               ),
               Container(
-                padding: EdgeInsets.all(0.5),
+                padding: const EdgeInsets.all(0.5),
                 width: 16,
                 height: 16,
                 child: Image.asset(
@@ -344,7 +344,7 @@ List eventSavedByUsers = [];
                 backgroundImage: NetworkImage(image),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 12,
             ),
             Text(
@@ -364,7 +364,7 @@ List eventSavedByUsers = [];
             func: () {
               Get.to(() => EventPageView(event,user));
             }),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
       ],
@@ -403,17 +403,17 @@ List eventSavedByUsers = [];
             Container(
               width: 50,
               height: 50,
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: Image.asset(
                 'assets/doneCircle.png',
                 fit: BoxFit.cover,
                 color: AppColors.blue,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 15,
             ),
-            Text(
+            const Text(
               'You\'re all caught up!',
               style: TextStyle(
                 fontSize: 18,
@@ -431,10 +431,10 @@ List eventSavedByUsers = [];
               color: Colors.grey.withOpacity(0.3),
               spreadRadius: 1,
               blurRadius: 10,
-              offset: Offset(0, 1), // changes position of shadow
+              offset: const Offset(0, 1), // changes position of shadow
             ),
           ], color: Colors.white, borderRadius: BorderRadius.circular(8)),
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           width: double.infinity,
           child: Column(
             children: [
@@ -444,12 +444,12 @@ List eventSavedByUsers = [];
                     backgroundImage: NetworkImage(userImage),
                     radius: 20,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(
                     userName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
@@ -457,12 +457,12 @@ List eventSavedByUsers = [];
                 ],
               ),
               Divider(
-                color: Color(0xff918F8F).withOpacity(0.2),
+                color: const Color(0xff918F8F).withOpacity(0.2),
               ),
-             Obx(()=> dataController.isEventsLoading.value? Center(child: CircularProgressIndicator(),) :  ListView.builder(
+             Obx(()=> dataController.isEventsLoading.value? const Center(child: CircularProgressIndicator(),) :  ListView.builder(
                 itemCount: dataController.joinedEvents.length,
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, i) {
 
 
@@ -497,7 +497,7 @@ List eventSavedByUsers = [];
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(4),
                                 border: Border.all(
-                                  color: Color(0xffADD8E6),
+                                  color: const Color(0xffADD8E6),
                                 ),
                               ),
                               child: Text(
@@ -545,7 +545,7 @@ List eventSavedByUsers = [];
 
 
                 return Container(
-                  margin: EdgeInsets.only(left: 10),
+                  margin: const EdgeInsets.only(left: 10),
                   child: CircleAvatar(
                 minRadius: 13,
                 backgroundImage: NetworkImage(image),
@@ -565,7 +565,7 @@ List eventSavedByUsers = [];
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
       ],
